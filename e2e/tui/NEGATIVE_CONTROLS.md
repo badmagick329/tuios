@@ -10991,3 +10991,11 @@ A follow-up commit adds `TestNotificationLevelErrorStillLogsAWarning`. This cont
 | Control: what was cut | Where it fails | Verdict |
 | --- | --- | --- |
 | The rule that a warning always goes to the log: `showNotification` skips it when `log_hidden` is false | `TestNotificationLevelErrorStillLogsAWarning`: "ASSERTION: the log viewer does not list the warning" | **caught** |
+
+## queue-prompt client_id
+
+Run on 2026-10-30 on Linux against a build from this branch.
+
+| Control: what was cut | Where it fails | Verdict |
+| --- | --- | --- |
+| The dedupe in `verbQueuePrompt`, so every call runs `queuePrompt` | `TestQueuedMessageWithAClientIDIsQueuedOnce`: the second call makes entry q2 and has no `duplicate` | The test catches it |
